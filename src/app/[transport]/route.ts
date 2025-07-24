@@ -28,6 +28,16 @@ const handler = createMcpHandler(
       tools: {
         cource_recommendation: {
           description: "Give a course recommendation to user",
+          inputSchema: {
+            type: "object",
+            properties: {
+              experienceLevel: {
+                type: "string",
+                enum: ["beginner", "intermediate"],
+              },
+            },
+            required: ["experienceLevel"],
+          },
         },
       },
     },
