@@ -17,7 +17,7 @@ const handler = createMcpHandler(
     },
   },
   {
-    redisUrl: process.env.REDIS_URL_REDIS_URL,
+    redisUrl: process.env.REDIS_URL,
   }
 );
 
