@@ -3,15 +3,30 @@ import { z } from "zod";
 
 const handler = createMcpHandler(
   (server) => {
-    server.tool("echo", { message: z.string() }, async ({ message }) => ({
-      content: [{ type: "text", text: `Tool echo: ${message}` }],
-    }));
+    server.tool(
+      "course_recommendation",
+      { level: z.enum(["beginner", "intermediate", "advanced"]) },
+      async ({ level }) => ({
+        content: [
+          {
+            type: "text",
+            text: `I would suggest you to start with the ${
+              level === "beginner"
+                ? "Javascript Tutorial"
+                : level === "intermediate"
+                ? "React Tutorial"
+                : "Next.js Tutorial"
+            }`,
+          },
+        ],
+      })
+    );
   },
   {
     capabilities: {
       tools: {
-        echo: {
-          description: "Echo a message",
+        course_recommendation: {
+          description: "Recommend a course based on the level",
         },
       },
     },
