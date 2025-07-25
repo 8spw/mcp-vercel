@@ -5,7 +5,7 @@ const handler = createMcpHandler(
   (server) => {
     server.tool(
       "course_recommendation",
-      { level: z.enum(["beginner", "intermediate", "advanced"]) },
+      { level: z.string() },
       async ({ level }) => ({
         content: [
           {
