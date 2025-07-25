@@ -4,8 +4,8 @@ import { z } from "zod";
 const handler = createMcpHandler(
   (server) => {
     server.tool(
-      "course_recommendation",
-      { level: z.string() },
+      "courseRecommendation",
+      { level: z.enum(["beginner", "intermediate", "advanced"]) },
       async ({ level }) => ({
         content: [
           {
@@ -25,7 +25,7 @@ const handler = createMcpHandler(
   {
     capabilities: {
       tools: {
-        course_recommendation: {
+        courseRecommendation: {
           description: "Recommend a course based on the level",
         },
       },
