@@ -19,7 +19,7 @@ const handler = createMcpHandler(
   {
     capabilities: {
       tools: {
-        leveLogger: {
+        levelLogger: {
           description: "Logs Level",
         },
       },
